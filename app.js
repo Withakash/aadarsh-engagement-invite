@@ -3,14 +3,24 @@ const intro = document.getElementById("intro");
 const openButton = document.getElementById("open-invite");
 const invitation = document.getElementById("invitation");
 const musicToggle = document.getElementById("music-toggle");
+const musicIconPath = document.getElementById("music-icon-path");
 const music = document.getElementById("bg-music");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const ICONS = {
+  play: "M8 5v14l11-7z",
+  pause: "M7 5h4v14H7zm6 0h4v14h-4z",
+};
 
 body.classList.add("locked");
 
 const setMusicState = (isPlaying) => {
   musicToggle.setAttribute("data-playing", isPlaying ? "true" : "false");
   musicToggle.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+  musicToggle.setAttribute("aria-label", isPlaying ? "Pause music" : "Play music");
+  if (musicIconPath) {
+    musicIconPath.setAttribute("d", isPlaying ? ICONS.pause : ICONS.play);
+  }
 };
 
 const startMusic = async () => {
@@ -128,6 +138,12 @@ musicToggle.addEventListener("click", async () => {
     setMusicState(false);
   }
 });
+
+if (music) {
+  music.addEventListener("play", () => setMusicState(true));
+  music.addEventListener("pause", () => setMusicState(false));
+  music.addEventListener("ended", () => setMusicState(false));
+}
 
 const revealItems = document.querySelectorAll("[data-reveal]");
 
