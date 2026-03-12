@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adarsh & Harshita Engagement Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body class="locked">
+    <div id="intro" class="intro-screen" aria-hidden="false">
+      <div class="intro-sky"></div>
+      <div class="intro-cloud intro-cloud--left"></div>
+      <div class="intro-cloud intro-cloud--right"></div>
+      <div class="intro-moon"></div>
+      <button id="open-invite" class="intro-card" aria-label="Open invitation">
+        <div class="intro-frame">
+          <p class="intro-eyebrow">Adarsh & Harshita</p>
+          <h1>Tap to Open Invitation</h1>
+          <span class="intro-sub">Engagement Celebration</span>
+        </div>
+      </button>
+    </div>
+
+    <header class="site-header">
+      <div class="brand">Engagement Invitation</div>
+      <button id="music-toggle" class="music-toggle" aria-pressed="false">
+        <span class="music-icon music-icon--play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M8 5v14l11-7z" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="music-icon music-icon--pause" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M7 5h4v14H7zm6 0h4v14h-4z" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="music-label">Music</span>
+      </button>
+    </header>
+
+    <audio id="bg-music" src="assets/music/engagement.mp3" loop autoplay muted></audio>
+
+    <main>
+      <section id="invitation" class="section invitation-scene">
+        <div class="sky-layer"></div>
+        <div class="stars-layer"></div>
+        <div class="parallax moon-layer" data-speed="0.15"></div>
+        <div class="parallax palace-layer" data-speed="0.3"></div>
+        <div class="parallax cloud-layer cloud-layer--one" data-speed="0.45"></div>
+        <div class="parallax cloud-layer cloud-layer--two" data-speed="0.6"></div>
+        <div class="lantern lantern--one"></div>
+        <div class="lantern lantern--two"></div>
+        <div class="lantern lantern--three"></div>
+
+        <div class="content frame" data-reveal>
+          <p class="overline">Engagement Celebration</p>
+          <h2 class="title">Adarsh & Harshita</h2>
+          <p class="invite-text">
+            Join us as we celebrate the engagement of Adarsh and Harshita.
+          </p>
+          <p class="invite-text">Time - 2 PM</p>
+          <p class="invite-text">Date - 28th March</p>
+          <p class="invite-text">Venue - JMD resort, Mandav</p>
+          <p class="invite-note">
+            Note: We request your timely presence to help us begin the celebration together
+          </p>
+          <p class="invite-text">Regards, Sarita and Dinesh Bapna</p>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="scroll-dot"></div>
+        </div>
+      </section>
+
+      <section id="story" class="section story-section">
+        <div class="section-header" data-reveal>
+          <h2 class="title">The stars of the celebration - Adarsh and Harshita</h2>
+          <p class="body-text">A story of joy and togetherness will be added soon.</p>
+        </div>
+
+        <div class="gallery">
+          <figure class="photo-card" data-reveal>
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800'><rect width='100%25' height='100%25' fill='%2310172a'/><text x='50%25' y='50%25' fill='%23d4af37' font-family='Playfair Display' font-size='42' text-anchor='middle' dominant-baseline='middle'>Photo 1</text></svg>"
+              alt="Couple photo placeholder 1"
+            />
+          </figure>
+          <figure class="photo-card" data-reveal>
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800'><rect width='100%25' height='100%25' fill='%2310172a'/><text x='50%25' y='50%25' fill='%23d4af37' font-family='Playfair Display' font-size='42' text-anchor='middle' dominant-baseline='middle'>Photo 2</text></svg>"
+              alt="Couple photo placeholder 2"
+            />
+          </figure>
+          <figure class="photo-card" data-reveal>
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800'><rect width='100%25' height='100%25' fill='%2310172a'/><text x='50%25' y='50%25' fill='%23d4af37' font-family='Playfair Display' font-size='42' text-anchor='middle' dominant-baseline='middle'>Photo 3</text></svg>"
+              alt="Couple photo placeholder 3"
+            />
+          </figure>
+          <figure class="photo-card" data-reveal>
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800'><rect width='100%25' height='100%25' fill='%2310172a'/><text x='50%25' y='50%25' fill='%23d4af37' font-family='Playfair Display' font-size='42' text-anchor='middle' dominant-baseline='middle'>Photo 4</text></svg>"
+              alt="Couple photo placeholder 4"
+            />
+          </figure>
+          <figure class="photo-card" data-reveal>
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800'><rect width='100%25' height='100%25' fill='%2310172a'/><text x='50%25' y='50%25' fill='%23d4af37' font-family='Playfair Display' font-size='42' text-anchor='middle' dominant-baseline='middle'>Photo 5</text></svg>"
+              alt="Couple photo placeholder 5"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="section-header" data-reveal>
+          <h2 class="title">Contact & Location</h2>
+          <p class="body-text">
+            Please contact us if you need any help - +91 93403 01193 or +91 62606 02228
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card" data-reveal>
+            <h3>Reach Us</h3>
+            <p class="body-text">We are happy to help with directions and details.</p>
+            <a class="gold-button" href="https://maps.app.goo.gl/9tFzULpfX4sHLJsV8" target="_blank" rel="noopener noreferrer">
+              View Location
+            </a>
+          </div>
+
+          <div class="map-card" data-reveal>
+            <iframe
+              title="JMD resort, Mandav"
+              src="https://maps.google.com/maps?q=JMD%20resort%20Mandav&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <div class="contact-card" data-reveal>
+            <h3>Instagram</h3>
+            <p class="body-text">Instagram page link will be added soon.</p>
+            <a class="gold-button" href="#" aria-disabled="true">Instagram Page</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Engagement Celebration of Adarsh & Harshita</p>
+    </footer>
+  </body>
+</html>
