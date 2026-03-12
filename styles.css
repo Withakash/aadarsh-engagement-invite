@@ -418,6 +418,20 @@ body.opened .intro-screen {
   background: linear-gradient(180deg, #0a1123 0%, #140f25 50%, #1d0f1f 100%);
 }
 
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.65) 1px, transparent 1px),
+    radial-gradient(circle, rgba(246, 226, 127, 0.8) 1px, transparent 1px),
+    radial-gradient(circle, rgba(233, 182, 200, 0.7) 1px, transparent 1px);
+  background-size: 180px 180px, 240px 240px, 320px 320px;
+  background-position: 0 0, 60px 80px, 120px 40px;
+  opacity: 0.5;
+  animation: sparkleMove 14s linear infinite;
+}
+
 .section-header {
   max-width: 720px;
   margin: 0 auto 40px;
@@ -612,6 +626,18 @@ body.opened .intro-screen {
   100% {
     transform: translateY(0);
     opacity: 0.6;
+  }
+}
+
+@keyframes sparkleMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
