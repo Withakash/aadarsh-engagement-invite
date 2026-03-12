@@ -1,6 +1,7 @@
 const body = document.body;
 const intro = document.getElementById("intro");
 const openButton = document.getElementById("open-invite");
+const invitation = document.getElementById("invitation");
 const musicToggle = document.getElementById("music-toggle");
 const music = document.getElementById("bg-music");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -40,6 +41,79 @@ openButton.addEventListener("keydown", (event) => {
     event.preventDefault();
     openInvitation();
   }
+});
+
+const attachSpotlight = (target, options = {}) => {
+  if (!target || reduceMotion) {
+    return;
+  }
+
+  const {
+    spotXVar = "--spot-x",
+    spotYVar = "--spot-y",
+    tiltTarget,
+    tiltXVar = "--intro-tilt-x",
+    tiltYVar = "--intro-tilt-y",
+    maxTilt = 6,
+    defaultSpot = { x: 50, y: 35 },
+  } = options;
+
+  let rafId = null;
+
+  const update = (event) => {
+    if (event.pointerType && event.pointerType !== "mouse") {
+      return;
+    }
+
+    const rect = target.getBoundingClientRect();
+    const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+    const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+    }
+
+    rafId = requestAnimationFrame(() => {
+      target.style.setProperty(spotXVar, `${x * 100}%`);
+      target.style.setProperty(spotYVar, `${y * 100}%`);
+
+      if (tiltTarget) {
+        const tiltX = (0.5 - y) * maxTilt;
+        const tiltY = (x - 0.5) * maxTilt;
+        tiltTarget.style.setProperty(tiltXVar, `${tiltX}deg`);
+        tiltTarget.style.setProperty(tiltYVar, `${tiltY}deg`);
+      }
+    });
+  };
+
+  const reset = () => {
+    target.style.setProperty(spotXVar, `${defaultSpot.x}%`);
+    target.style.setProperty(spotYVar, `${defaultSpot.y}%`);
+    if (tiltTarget) {
+      tiltTarget.style.setProperty(tiltXVar, "0deg");
+      tiltTarget.style.setProperty(tiltYVar, "0deg");
+    }
+  };
+
+  target.addEventListener("pointermove", update);
+  target.addEventListener("pointerleave", reset);
+  reset();
+};
+
+attachSpotlight(intro, {
+  spotXVar: "--intro-spot-x",
+  spotYVar: "--intro-spot-y",
+  tiltTarget: openButton,
+  tiltXVar: "--intro-tilt-x",
+  tiltYVar: "--intro-tilt-y",
+  maxTilt: 10,
+  defaultSpot: { x: 50, y: 30 },
+});
+
+attachSpotlight(invitation, {
+  spotXVar: "--spot-x",
+  spotYVar: "--spot-y",
+  defaultSpot: { x: 50, y: 35 },
 });
 
 musicToggle.addEventListener("click", async () => {
